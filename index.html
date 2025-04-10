@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,10 +90,21 @@
         .about-content {
             display: flex;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .about-text, .skills {
             flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 2px solid #3b82f6;
         }
 
         /* Projects Section */
@@ -111,6 +123,24 @@
             background: rgba(44, 54, 71, 0.5);
             padding: 1rem;
             border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card a {
+            color: #3b82f6;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .project-card a:hover {
+            color: #a78bfa;
         }
 
         /* Hobbies Section */
@@ -129,6 +159,12 @@
             padding: 1rem;
             text-align: center;
             border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
 
         /* Contact Section */
@@ -150,6 +186,26 @@
             background: rgba(44, 54, 71, 0.5);
             border: 1px solid #3b82f6;
             color: #f8fafc;
+            border-radius: 4px;
+        }
+
+        .contact-form button {
+            background: linear-gradient(to right, #a78bfa, #3b82f6);
+            color: #f8fafc;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .contact-form button:hover {
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 2rem;
         }
 
         /* Footer */
@@ -157,6 +213,57 @@
             text-align: center;
             padding: 1rem;
             background: rgba(26, 31, 44, 0.8);
+        }
+
+        /* Section Headers */
+        h2 {
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(to right, #a78bfa, #3b82f6);
+        }
+
+        /* GitHub Link */
+        .github-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(to right, #a78bfa, #3b82f6);
+            color: #f8fafc;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: opacity 0.3s;
+        }
+
+        .github-link:hover {
+            opacity: 0.9;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            .navbar {
+                flex-direction: column;
+                padding: 0.5rem;
+            }
+            .navbar .nav-links {
+                margin-top: 0.5rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -177,6 +284,7 @@
     <section id="home" class="hero">
         <h1>Hi, I'm Krishna</h1>
         <p>Computer Engineering Student passionate about software development, problem-solving, and emerging technologies.</p>
+        <a href="https://github.com/krishna-code1" class="github-link" target="_blank">Visit My GitHub</a>
     </section>
 
     <!-- About Section -->
@@ -184,6 +292,7 @@
         <h2>About Me</h2>
         <div class="about-content">
             <div class="about-text">
+                <img src="public/lovable-uploads/00eac712-3316-4f2e-919b-8d4d89a2b60a.png" alt="Krishnakant Kolnure" class="profile-image">
                 <p>I am a passionate and dedicated Computer Engineering student at MIT Academy of Engineering (MITAOE), currently pursuing my B.Tech. Born in 2006, I have a keen interest in software development, problem-solving, and emerging technologies. I am continuously learning and improving my skills in programming, web development, and artificial intelligence.</p>
             </div>
             <div class="skills">
@@ -207,12 +316,12 @@
             <div class="project-card">
                 <h3>User Management System</h3>
                 <p>A shell script project for managing users in Linux systems.</p>
-                <a href="https://github.com/krishna-code1/project.sh/blob/main/user_management.sh">View Project</a>
+                <a href="https://github.com/krishna-code1/project.sh/blob/main/user_management.sh" target="_blank">View Project</a>
             </div>
             <div class="project-card">
                 <h3>To Do List Application</h3>
                 <p>A shell script based task management application.</p>
-                <a href="https://github.com/krishna-code1/newproject.sh/blob/main/project.sh">View Project</a>
+                <a href="https://github.com/krishna-code1/newproject.sh/blob/main/project.sh" target="_blank">View Project</a>
             </div>
         </div>
     </section>
@@ -246,7 +355,7 @@
         <form class="contact-form">
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
+            <textarea placeholder="Your Message" required rows="5"></textarea>
             <button type="submit">Send Message</button>
         </form>
         <div class="contact-info">
